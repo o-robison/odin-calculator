@@ -1,10 +1,12 @@
 let firstNumber = undefined;
 let secondNumber = undefined;
 let operator = undefined;
+let result = undefined;
 
 const firstNumDisplay = document.querySelector("#firstNumber");
 const secondNumDisplay = document.querySelector("#secondNumber");
 const operatorDisplay = document.querySelector("#operator");
+const resultDisplay = document.querySelector("#result");
 
 function add(a, b) {
     return a+b;
@@ -25,25 +27,31 @@ function divide(a, b) {
 function operate(a, b, op) {
     switch (op) {
         case '+':
-            add(a, b);
+            result = add(a, b);
             break;
         case '-':
-            subtract(a, b);
+            result = subtract(a, b);
             break;
         case '*':
-            multiply(a, b);
+            result = multiply(a, b);
             break;
         case '/':
-            divide(a, b);
+            result = divide(a, b);
             break;
     }
+    updateDisplay();
     return;
 }
 
 function updateDisplay() {
     if(firstNumber) firstNumDisplay.innerHTML = firstNumber;
+    else firstNumDisplay.innerHTML = '';
     if(operator) operatorDisplay.innerHTML = operator;
+    else operatorDisplay.innerHTML = '';
     if(secondNumber) secondNumDisplay.innerHTML = secondNumber;
+    else secondNumDisplay.innerHTML = '';
+    if(result) resultDisplay.innerHTML = result;
+    else resultDisplay.innerHTML = '';
     return;
 }
 
@@ -67,6 +75,7 @@ function setOperator(op) {
 function clear() {
     firstNumber = secondNumber = undefined;
     operator = undefined;
+    updateDisplay();
     return;
 }
 
