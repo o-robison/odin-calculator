@@ -33,4 +33,77 @@ function operate(a, b, op) {
             divide(a, b);
             break;
     }
+    return;
 }
+
+function setNumber(number) {
+    if(firstNumber==undefined) firstNumber = number;
+    else secondNumber = number;
+    return; 
+}
+
+function setOperator(op) {
+    operator = op;
+    return;
+}
+
+function clear() {
+    firstNumber = secondNumber = undefined;
+    operator = undefined;
+    return;
+}
+
+function buttonHandler(e) {
+    switch (e.target.id) {
+        case '1':
+            setNumber(1);
+            break;
+        case '2':
+            setNumber(2);
+            break;
+        case '3':
+            setNumber(3);
+            break;
+        case '4':
+            setNumber(4);
+            break;
+        case '5':
+            setNumber(5);
+            break;
+        case '6':
+            setNumber(6);
+            break;
+        case '7':
+            setNumber(7);
+            break;
+        case '8':
+            setNumber(8);
+            break;
+        case '9':
+            setNumber(9);
+            break;
+        case '0':
+            setNumber(0);
+            break;
+        case '+':
+            setOperator("+");
+            break;
+        case '-':
+            setOperator("-");
+            break;
+        case '*':
+            setOperator("*");
+            break;
+        case '/':
+            setOperator("/");
+            break;
+        case '=':
+            operate();
+            break;
+        case 'clear':
+            clear();
+            break;
+    }
+}
+const buttons = document.querySelector("buttons");
+buttons.addEventListener(buttonHandler);
