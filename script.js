@@ -24,19 +24,19 @@ function divide(a, b) {
     return a/b;
 }
 
-function operate(a, b, op) {
-    switch (op) {
+function operate() {
+    switch (operator) {
         case '+':
-            result = add(a, b);
+            result = add(firstNumber, secondNumber);
             break;
         case '-':
-            result = subtract(a, b);
+            result = subtract(firstNumber, secondNumber);
             break;
         case '*':
-            result = multiply(a, b);
+            result = multiply(firstNumber, secondNumber);
             break;
         case '/':
-            result = divide(a, b);
+            result = divide(firstNumber, secondNumber);
             break;
     }
     updateDisplay();
@@ -73,7 +73,7 @@ function setOperator(op) {
 }
 
 function clear() {
-    firstNumber = secondNumber = undefined;
+    firstNumber = secondNumber = result = undefined;
     operator = undefined;
     updateDisplay();
     return;
