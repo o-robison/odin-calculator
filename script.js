@@ -25,7 +25,7 @@ function divide(a, b) {
 }
 
 function operate() {
-    if(!operator) return;
+    if(!operator || !secondNumber) return;
     switch (operator) {
         case '+':
             result = add(parseInt(firstNumber), parseInt(secondNumber));
@@ -43,6 +43,9 @@ function operate() {
             }
             else result = divide(parseInt(firstNumber), parseInt(secondNumber));
             break;
+    }
+    if(result%1>0) {
+        result = Math.round(result*100)/100;
     }
     firstNumber = result.toString();
     operator = undefined;
