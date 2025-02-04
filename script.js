@@ -2,6 +2,10 @@ let firstNumber = undefined;
 let secondNumber = undefined;
 let operator = undefined;
 
+const firstNumDisplay = document.querySelector("#firstNumber");
+const secondNumDisplay = document.querySelector("#secondNumber");
+const operatorDisplay = document.querySelector("#operator");
+
 function add(a, b) {
     return a+b;
 }
@@ -36,14 +40,27 @@ function operate(a, b, op) {
     return;
 }
 
+function updateDisplay() {
+    if(firstNumber) firstNumDisplay.innerHTML = firstNumber;
+    if(operator) operatorDisplay.innerHTML = operator;
+    if(secondNumber) secondNumDisplay.innerHTML = secondNumber;
+    return;
+}
+
 function setNumber(number) {
-    if(firstNumber==undefined) firstNumber = number;
-    else secondNumber = number;
+    if(!firstNumber){
+        firstNumber = number;
+    }
+    else {
+        secondNumber = number;
+    }
+    updateDisplay();
     return; 
 }
 
 function setOperator(op) {
     operator = op;
+    updateDisplay();
     return;
 }
 
@@ -105,5 +122,5 @@ function buttonHandler(e) {
             break;
     }
 }
-const buttons = document.querySelector("buttons");
-buttons.addEventListener(buttonHandler);
+const buttons = document.querySelector("#buttons");
+buttons.addEventListener("click", buttonHandler);
