@@ -39,6 +39,9 @@ function operate() {
             result = divide(parseInt(firstNumber), parseInt(secondNumber));
             break;
     }
+    firstNumber = result.toString();
+    operator = undefined;
+    secondNumber = '';
     updateDisplay();
     return;
 }
@@ -50,8 +53,7 @@ function updateDisplay() {
     else operatorDisplay.innerHTML = '';
     if(secondNumber) secondNumDisplay.innerHTML = secondNumber;
     else secondNumDisplay.innerHTML = '';
-    if(result) resultDisplay.innerHTML = result;
-    else resultDisplay.innerHTML = '';
+
     return;
 }
 
@@ -80,7 +82,6 @@ function clear() {
 }
 
 function buttonHandler(e) {
-    console.log(parseInt(e.target.id));
     if(isNaN(parseInt(e.target.id))) {
         if(e.target.id==="clear") clear();
         else if(e.target.id==='=') operate();
