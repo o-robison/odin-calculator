@@ -25,6 +25,7 @@ function divide(a, b) {
 }
 
 function operate() {
+    if(!operator) return;
     switch (operator) {
         case '+':
             result = add(parseInt(firstNumber), parseInt(secondNumber));
@@ -36,7 +37,11 @@ function operate() {
             result = multiply(parseInt(firstNumber), parseInt(secondNumber));
             break;
         case '/':
-            result = divide(parseInt(firstNumber), parseInt(secondNumber));
+            if(parseInt(secondNumber)===0){
+                alert("Don't divide by zero!");
+                result = parseInt(firstNumber);
+            }
+            else result = divide(parseInt(firstNumber), parseInt(secondNumber));
             break;
     }
     firstNumber = result.toString();
