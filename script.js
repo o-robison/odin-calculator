@@ -80,8 +80,10 @@ function clear() {
 }
 
 function buttonHandler(e) {
-    if(parseInt(e.target.id)==NaN) {
+    console.log(parseInt(e.target.id));
+    if(isNaN(parseInt(e.target.id))) {
         if(e.target.id==="clear") clear();
+        else if(e.target.id==='=') operate();
         else setOperator(e.target.id);
     }
     else setNumber(e.target.id);
